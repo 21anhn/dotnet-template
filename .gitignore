@@ -1,0 +1,11 @@
+﻿DotNetTemplate/.vs
+DotNetTemplate/DotNetTemplate.Api/bin
+DotNetTemplate/DotNetTemplate.Api/obj
+DotNetTemplate/DotNetTemplate.Api/DotNetTemplate.WebApi.csproj.user
+DotNetTemplate/DotNetTemplate.Api/DotNetTemplate.Api.http
+DotNetTemplate/DotNetTemplate.Application/obj
+DotNetTemplate/DotNetTemplate.Application/bin
+DotNetTemplate/DotNetTemplate.Infrastructure/bin
+DotNetTemplate/DotNetTemplate.Infrastructure/obj
+DotNetTemplate/MyApp.Domain/bin
+DotNetTemplate/MyApp.Domain/obj
