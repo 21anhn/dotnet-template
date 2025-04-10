@@ -9,3 +9,5 @@ DotNetTemplate/DotNetTemplate.Infrastructure/bin
 DotNetTemplate/DotNetTemplate.Infrastructure/obj
 DotNetTemplate/MyApp.Domain/bin
 DotNetTemplate/MyApp.Domain/obj
+DotNetTemplate/DotNetTemplate.Domain/bin
+DotNetTemplate/DotNetTemplate.Domain/obj

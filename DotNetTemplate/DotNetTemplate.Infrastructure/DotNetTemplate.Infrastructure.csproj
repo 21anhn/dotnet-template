@@ -10,7 +10,7 @@
     <ProjectReference Include="..\DotNetTemplate.Application\DotNetTemplate.Application.csproj">
       <Private>True</Private>
     </ProjectReference>
-    <ProjectReference Include="..\MyApp.Domain\DotNetTemplate.Domain.csproj">
+    <ProjectReference Include="..\DotNetTemplate.Domain\DotNetTemplate.Domain.csproj">
       <Private>True</Private>
     </ProjectReference>
   </ItemGroup>
