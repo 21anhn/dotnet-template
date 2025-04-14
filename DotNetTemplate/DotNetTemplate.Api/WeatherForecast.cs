@@ -1,4 +1,4 @@
-namespace DotNetTemplate.Api
+namespace DotNetTemplate.WebApi
 {
     public class WeatherForecast
     {
