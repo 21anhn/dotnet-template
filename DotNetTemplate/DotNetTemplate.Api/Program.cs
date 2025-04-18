@@ -1,4 +1,6 @@
+using DotNetTemplate.Infrastructure.Options;
 using DotNetTemplate.Infrastructure.Persistence;
+using DotNetTemplate.WebApi.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 
 namespace DotNetTemplate.WebApi
@@ -8,6 +10,11 @@ namespace DotNetTemplate.WebApi
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Services.AddConfigureAppOptions(builder.Configuration);
+
+            var jwtOptions = builder.Configuration.GetSection("JwtSettings").Get<JwtSettingsOptions>();
+            builder.Services.AddCustomJwtAuthentication(jwtOptions);
 
             // Add services to the container.
             _ = builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(builder.Configuration["ConnectionStrings:AppDbContext"]));

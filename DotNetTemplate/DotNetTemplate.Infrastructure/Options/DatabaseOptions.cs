@@ -2,6 +2,6 @@
 {
     public class DatabaseOptions
     {
-        public string ConnectionStrings { get; set; } = string.Empty;
+        public string AppDbContext { get; set; } = string.Empty;
     }
 }
