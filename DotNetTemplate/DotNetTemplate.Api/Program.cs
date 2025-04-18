@@ -35,8 +35,9 @@ namespace DotNetTemplate.WebApi
 
             _ = app.UseHttpsRedirection();
 
-            _ = app.UseAuthorization();
+            _ = app.UseAuthentication();
 
+            _ = app.UseAuthorization();
 
             _ = app.MapControllers();
 
