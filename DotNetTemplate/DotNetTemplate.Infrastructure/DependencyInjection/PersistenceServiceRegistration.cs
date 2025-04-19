@@ -1,6 +1,7 @@
 ﻿using DotNetTemplate.Infrastructure.Options;
 using DotNetTemplate.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace DotNetTemplate.WebApi.DependencyInjection
 {
