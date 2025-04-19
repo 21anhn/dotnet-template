@@ -6,8 +6,8 @@ namespace DotNetTemplate.WebApi.DependencyInjection
     {
         public static IServiceCollection AddConfigureAppOptions(this IServiceCollection services, IConfiguration configuration)
         {
-            services.Configure<DatabaseOptions>(configuration.GetSection("ConnectionStrings"));
-            services.Configure<JwtSettingsOptions>(configuration.GetSection("JwtSettings"));
+            _ = services.Configure<DatabaseOptions>(configuration.GetSection(nameof(DatabaseOptions)));
+            _ = services.Configure<JwtSettingsOptions>(configuration.GetSection(nameof(JwtSettingsOptions)));
 
             return services;
         }

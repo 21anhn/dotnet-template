@@ -1,7 +1,5 @@
 using DotNetTemplate.Infrastructure.Options;
-using DotNetTemplate.Infrastructure.Persistence;
 using DotNetTemplate.WebApi.DependencyInjection;
-using Microsoft.EntityFrameworkCore;
 
 namespace DotNetTemplate.WebApi
 {
@@ -11,13 +9,13 @@ namespace DotNetTemplate.WebApi
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddConfigureAppOptions(builder.Configuration);
+            _ = builder.Services.AddConfigureAppOptions(builder.Configuration);
 
-            var jwtOptions = builder.Configuration.GetSection("JwtSettings").Get<JwtSettingsOptions>();
-            builder.Services.AddCustomJwtAuthentication(jwtOptions);
+            var jwtOptions = builder.Configuration.GetSection(nameof(JwtSettingsOptions)).Get<JwtSettingsOptions>();
+            _ = builder.Services.AddCustomJwtAuthentication(jwtOptions);
 
-            // Add services to the container.
-            _ = builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(builder.Configuration["ConnectionStrings:AppDbContext"]));
+            var databaseOptions = builder.Configuration.GetSection(nameof(DatabaseOptions)).Get<DatabaseOptions>();
+            _ = builder.Services.AddCustomDbContext(databaseOptions);
 
             _ = builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
