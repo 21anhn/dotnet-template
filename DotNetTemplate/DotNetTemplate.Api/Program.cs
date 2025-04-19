@@ -1,4 +1,3 @@
-using DotNetTemplate.Infrastructure.Options;
 using DotNetTemplate.WebApi.Common.ApiHandlers;
 using DotNetTemplate.WebApi.DependencyInjection;
 
@@ -10,13 +9,7 @@ namespace DotNetTemplate.WebApi
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            _ = builder.Services.AddConfigureAppOptions(builder.Configuration);
-
-            var jwtOptions = builder.Configuration.GetSection(nameof(JwtSettingsOptions)).Get<JwtSettingsOptions>();
-            _ = builder.Services.AddCustomJwtAuthentication(jwtOptions);
-
-            var databaseOptions = builder.Configuration.GetSection(nameof(DatabaseOptions)).Get<DatabaseOptions>();
-            _ = builder.Services.AddCustomDbContext(databaseOptions);
+            _ = builder.Services.AddWebApi(builder.Configuration);
 
             _ = builder.Services.AddControllers(options =>
             {
