@@ -1,4 +1,5 @@
 using DotNetTemplate.Infrastructure.Options;
+using DotNetTemplate.WebApi.Common.ApiHandlers;
 using DotNetTemplate.WebApi.DependencyInjection;
 
 namespace DotNetTemplate.WebApi
@@ -17,7 +18,11 @@ namespace DotNetTemplate.WebApi
             var databaseOptions = builder.Configuration.GetSection(nameof(DatabaseOptions)).Get<DatabaseOptions>();
             _ = builder.Services.AddCustomDbContext(databaseOptions);
 
-            _ = builder.Services.AddControllers();
+            _ = builder.Services.AddControllers(options =>
+            {
+                options.Conventions.Add(new PluralizeControllerRouteConvention());
+            });
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             _ = builder.Services.AddEndpointsApiExplorer();
             _ = builder.Services.AddSwaggerGen();
